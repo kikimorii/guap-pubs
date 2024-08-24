@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="https://src.guap.ru/logos/guap/guap-sign.svg">
 </head>
 <body class="d-flex flex-column h-100">
-    <!-- gallery interface -->
+    <!-- Gallery interface -->
     <div id="blueimp-gallery"
         class="blueimp-gallery blueimp-gallery-svgasimg blueimp-gallery-smil blueimp-gallery-display blueimp-gallery-controls"
         aria-label="image gallery" aria-modal="true" role="dialog" style="display: none;">
@@ -21,6 +21,7 @@
             aria-pressed="false" role="button"></a>
         <ol class="indicator"></ol>
     </div>
+    <!-- /Gallery interface -->
 
     
     <header class="header py-1">
@@ -224,11 +225,11 @@
 
 
 
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Gallery -->
-    <script src="node_modules/blueimp-gallery/js/blueimp-gallery.js"></script>
+    <script src="libs/blueimp-gallery/js/blueimp-gallery.js"></script>
     <script>
         document.getElementById('gallery').onclick = function (event) {
             event = event || window.event
@@ -299,7 +300,7 @@
             </li>
         </ul>
     </nav>
-    <script src="node_modules/mmenu-js/dist/mmenu.js" crossorigin="anonymous"></script>
+    <script src="libs/mmenu-js/dist/mmenu.js" crossorigin="anonymous"></script>
     <script>
         document.addEventListener(
             "DOMContentLoaded", () => {
