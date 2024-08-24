@@ -1,6 +1,6 @@
 @charset "UTF-8";
-@import "../node_modules/mmenu-js/dist/mmenu.css";
-@import "../node_modules/blueimp-gallery/css/blueimp-gallery.min.css";
+@import "../libs/mmenu-js/dist/mmenu.css";
+@import "../libs/blueimp-gallery/css/blueimp-gallery.min.css";
 .font-roboto {
   font-family: Roboto;
 }
