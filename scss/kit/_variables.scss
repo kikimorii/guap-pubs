@@ -1,0 +1,68 @@
+// Главные цвета
+$secondary-guap: #E72B70;
+$secondary-dark: #890F3C;
+$primary-guap: #005AAA;
+$primary-dark: #003666;
+
+// Тени
+$shadow-news: #D6E5F1;
+
+// Рамки
+$border-badge: #D4EAFC;
+
+// Фоны
+$bg_light: #F0F6FB;
+$bg_pubs-content: #F9F9F9;
+$bg_block-solid: #F5F5F8;
+$bg_medium: #D4EAFC;
+
+// Тёмные цвета
+$dark-main: #222222;
+$dark-90: #383838;
+$dark-80: #4c4c4c;
+$dark-70: #626262;
+$dark-60: #767676;
+$dark-50: #8b8b8b;
+$dark-40: #a1a1a1;
+$dark-30: #BDBDBD;
+$dark-20: #CBCBCB;
+$dark-10: #E0E0E0;
+
+// Светлые цвета
+$light-main: #FFFFFF;
+$light-80: #CCD7E0;
+$light-50: #7F9AB2;
+
+// Градиенты границы
+$gradient_it-start: #2E2783;
+$gradient_it-end: #00B7EC;
+
+$gradient_block_light-start: #DCF4FF;
+$gradient_block_light-end: #C5DEFF;
+
+$gradient_block_dark-start: #2E2783 15%;
+$gradient_block_dark-end: #27CAF8;
+
+$gradient_primary-start: $primary-guap;
+$gradient_primary-end: $primary-dark;
+
+$gradient_secondary-start: $secondary-guap;
+$gradient_secondary-dark: $secondary-dark;
+
+$gradient_line-start: #E40046;
+$gradient_line-center: #7F35B2;
+$gradient_line-end: #005AAA;
+
+// Наплавления градиента
+$direction-90: 90deg;
+$direction-135: 135deg;
+$direction-180: 180deg;
+
+// Градиенты
+$gradient_it: linear-gradient($direction-90, $gradient_it-start, $gradient_it-end);
+$gradient_block_light: linear-gradient($direction-135, $gradient_block_light-start, $gradient_block_light-end);
+$gradient_block_dark: linear-gradient($direction-135, $gradient_block_dark-start, $gradient_block_dark-end);
+$gradient_primary: linear-gradient($direction-180, $gradient_primary-start, $gradient_primary-end);
+$gradient_secondary: linear-gradient($direction-180, $gradient_secondary-start, $gradient_secondary-dark);
+$gradient_line-90: linear-gradient($direction-90, $gradient_line-start, $gradient_line-center, $gradient_line-end);
+$gradient_line-180: linear-gradient($direction-180, $gradient_line-start, $gradient_line-center, $gradient_line-end);

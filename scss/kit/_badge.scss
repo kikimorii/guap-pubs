@@ -1,0 +1,21 @@
+.badge-g {
+    @include badge-sample();
+    @include badge_disabled-sample();
+    &-sm {
+        @include badge-sample();
+        padding: 0.4rem 0.7rem;
+        font-size: 11px;
+        @include badge_disabled-sample();
+    }
+    @include media-breakpoint-down(sm) {
+        padding: 0.3rem 1.4rem;
+    }
+}
+
+.badge-guap-disable {
+    color: $dark-20;
+    background-color: $dark-10;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: normal;
+}

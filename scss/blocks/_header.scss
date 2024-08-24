@@ -1,0 +1,61 @@
+header {
+    background-color: #f6f6f9;
+    border-bottom: 3px solid transparent;
+    border-image: $gradient_line-90;
+    border-image-slice: 1;
+}
+
+.logo {
+    max-height: 2rem;
+    @include media-breakpoint-down(md){
+        max-height: 1.5rem;
+    }
+}
+
+// Всё для бургера
+.menu_btn {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    &:hover .bar {
+        background-color: $secondary-guap;
+    }
+    .bar {
+        width: 18px;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 4px;
+        transform: translate(-50%, -50%);
+        background-color: $primary-guap;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+.menu_btn .bar {
+    &:nth-of-type(2) {
+        top: calc(50% - 4px);
+    }
+    &:nth-of-type(3) {
+        top: calc(50% + 4px);
+    }
+    
+}
+
+/* Меняем иконку гамбургера, когда меню открыто */
+.menu_btn.active .bar:nth-of-type(1) {
+    display: none;
+}
+
+.menu_btn.active .bar:nth-of-type(2) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(45deg);
+}
+
+.menu_btn.active .bar:nth-of-type(3) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(-45deg);
+}

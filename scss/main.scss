@@ -1,0 +1,97 @@
+@import "kit/variables";
+@import "kit/mixins";
+@import "fonts/include-fonts";
+@import "fonts/guap-icons";
+@import "fonts/bootstrap-icons";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/mmenu-js/dist/mmenu.css";
+
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 4px 8px 4px 8px #0061FF;
+    margin-top: 10px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 8px rgba(255, 255, 255, 0);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+html {
+    font-size: 20px;
+    @include media-breakpoint-down(sm) {
+        font-size: 16px;
+    }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: $dark-main;
+}
+
+a {
+    color: $primary-guap !important;
+    text-decoration: none;
+    &:hover {
+        color: $secondary-guap !important;
+    }
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    @include media-breakpoint-down(md) {
+        font-size: 2rem;
+    }
+}
+
+h3 {
+    @include media-breakpoint-down(md) {
+        font-size: 1.5rem;
+    }
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+li {
+    &::marker {
+        color: $primary-guap;
+    }
+}
+
+blockquote {
+    border-left: 4px solid #E72B70;
+    padding-left: 2em;
+    border-right: none;
+    border-width: 0 0 0 4pt;
+    border-image: linear-gradient(to bottom, #e72b70, #005aaa) 1 100%;
+}
+
+@import "blocks/header";
+@import "blocks/footer";
+@import "blocks/registration_card";
+@import "blocks/pubs_data";
+
+@import "kit/links";
+@import "kit/buttons";
+@import "kit/badge";
+@import "kit/breadcrumb";
+@import "kit/filter";
+@import "kit/pils";
+@import "kit/paginator";
+@import "kit/newsblock";
+@import "kit/eventblock";
+
+// Галерея
+@import "kit/gallery";

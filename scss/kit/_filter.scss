@@ -1,0 +1,216 @@
+.btn {
+    &_clean {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: $dark-30 !important;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+
+        &:hover {
+            color: $dark-40 !important;
+        }
+
+        &:active {
+            color: $primary-guap !important;
+        }
+
+        &-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background-color: transparent;
+            padding: 0;
+
+            &-hover {
+                display: none;
+            }
+        }
+
+        &-icon:hover,
+        &:hover>&-icon {
+            .btn_clean-def {
+                display: none;
+            }
+
+            .btn_clean-hover {
+                display: block;
+                width: 16px;
+                height: 16px;
+                background-image: url('../img/clean-btn-hover.svg');
+                background-size: cover;
+            }
+        }
+
+        &-icon:active,
+        &:active>.btn_clean-icon {
+            .btn_clean-def {
+                display: none;
+            }
+
+            .btn_clean-hover {
+                display: block;
+                width: 16px;
+                height: 16px;
+                background-image: url('../img/clean-btn-active.svg');
+                background-size: cover;
+            }
+        }
+    }
+
+    &_filter {
+        display: block;
+        width: 0px;
+        padding: 20px;
+        background-image: url("../img/filter-btn.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $bg_light;
+        border-radius: 50%;
+        border: none;
+
+        &.active,
+        &:active {
+            background-image: url("../img/filter-btn-active.svg");
+            background-color: $primary-guap;
+        }
+    }
+
+    &_close {
+        display: block;
+        width: 0px;
+        padding: 12px;
+        background-image: url("../img/close-btn.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+            background-image: url("../img/close-btn-hover.svg");
+        }
+
+        &:focus {
+            background-image: url("../img/close-btn-focus.svg");
+            outline-color: $primary-guap;
+        }
+
+        &:active {
+            background-color: $primary-guap;
+            background-image: url("../img/close-btn-active.svg");
+            border-radius: 50%;
+        }
+    }
+}
+
+.g-filter {
+    font-size: 14px;
+
+    &.input_wrapper,
+    &.select_wrapper {
+        &:focus-within {
+            outline: 2px solid $dark-40;
+            border-radius: 4px;
+            @include media-breakpoint-down(sm) {
+                border-color: transparent;
+            }
+        }
+
+        border-bottom: 2px solid $dark-40;
+
+        @include media-breakpoint-down(sm) {
+            border-bottom-width: 1px;
+        }
+    }
+
+    &.input_data {
+        position: relative;
+
+        &.end::before,
+        &.start::before {
+            padding-left: 10px;
+            color: $dark-40;
+            display: block;
+            width: 26px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &.start::before {
+            content: "c";
+        }
+
+        &.end::before {
+            content: "по";
+
+        }
+    }
+
+    &.form-select {
+        color: $dark-40;
+        background: url(../img/bi_chevron-down.svg);
+        background-repeat: no-repeat;
+        background-position-y: center;
+        background-position-x: calc(100% - 0.375rem);
+
+        &>.g-filter-select {
+            color: $dark-main;
+        }
+
+        @include media-breakpoint-down(sm) {
+            padding: 1.3rem 0.75rem;
+        }
+    }
+
+    &.form-control {
+        &[type="text"] {
+            background-image: url(../img/search.svg);
+            background-repeat: no-repeat;
+            background-position-y: center;
+            background-position-x: calc(100% - 0.375rem);
+        }
+
+        &[type="date"] {
+            color: $dark-40;
+            padding-left: calc(26px + 0.375rem);
+
+            &::-webkit-calendar-picker-indicator {
+                background: url(../img/calendar.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            @include media-breakpoint-down(xxl) {
+                padding-right: 0;
+            }
+            @include media-breakpoint-down(sm) {
+                padding-right: 0.75rem;
+            }
+
+            // @include media-breakpoint-down(lg) {
+            //     padding: 0.375rem 0.375rem;
+            // }
+        }
+
+        @include media-breakpoint-down(sm) {
+            padding: 1.3rem 0.75rem;
+        }
+    }
+
+    input,
+    select {
+        border: 0;
+
+        &::placeholder {
+            color: $dark-40;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.mm-listitem__text {
+  white-space: normal;
+}
+
+@media (max-width: 768px) {
+  #menu {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  #mm-menu {
+    display: none !important;
+  }
+}/*# sourceMappingURL=mmenu.css.map */

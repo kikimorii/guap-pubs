@@ -1,0 +1,30 @@
+.btn-g {
+    &-16 {
+        font-size: 16px;
+        padding: 0.5em 1.5em;
+
+        &.g-primary {
+            @include btn-sample($primary-guap, $primary-dark, $gradient_primary);
+        }
+
+        &.g-secondary {
+            @include btn-sample($secondary-guap, $secondary-dark, $gradient_secondary);
+        }
+        @include media-breakpoint-down(xxl) {
+            font-size: 12px;
+        }
+    }
+
+    &-20 {
+        font-size: 20px;
+        padding: 0.4em 1.2em;
+
+        &.g-primary {
+            @include btn-sample($primary-guap, $primary-dark, $gradient_primary);
+        }
+
+        &.g-secondary {
+            @include btn-sample($secondary-guap, $secondary-dark, $gradient_secondary);
+        }
+    }
+}

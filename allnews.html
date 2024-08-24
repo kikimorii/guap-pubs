@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все новости</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/svg+xml" href="https://src.guap.ru/logos/guap/guap-sign.svg">
+</head>
+<body class="d-flex flex-column h-100">
+    <div id="blueimp-gallery"
+        class="blueimp-gallery blueimp-gallery-svgasimg blueimp-gallery-smil blueimp-gallery-display blueimp-gallery-controls"
+        aria-label="image gallery" aria-modal="true" role="dialog" style="display: none;">
+        <div class="slides" aria-live="polite"></div>
+        <h3 class="title"></h3>
+        <a class="prev" aria-controls="blueimp-gallery" aria-label="previous slide" aria-keyshortcuts="ArrowLeft"></a>
+        <a class="next" aria-controls="blueimp-gallery" aria-label="next slide" aria-keyshortcuts="ArrowRight"></a>
+        <a class="close" aria-controls="blueimp-gallery" aria-label="close" aria-keyshortcuts="Escape"></a>
+        <a class="play-pause" aria-controls="blueimp-gallery" aria-label="play slideshow" aria-keyshortcuts="Space"
+            aria-pressed="false" role="button"></a>
+        <ol class="indicator"></ol>
+    </div>
+    <header class="header py-1">
+        <div class="container-xxl">
+            <nav class="d-flex align-items-center">
+                <a href="https://guap.ru"><img class="logo" src="https://src.guap.ru/logos/guap/guap.svg"
+                        alt="ГУАП"></a>
+                <div class="ms-auto nav align-items-center">
+                    <a class="nav-link px-2 py-0" href="/sitemap"><i class="bi-diagram-3"></i></a>
+                    <a class="nav-link px-2 py-0" href="/search"><i class="bi-search"></i></a>
+                    <a class="menu_btn px-3" href="#menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container-xxl">
+            <nav aria-label="breadcrumb" class="my-3">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">ГУАП</a></li>
+                    <li class="breadcrumb-item active opacity-50">Новости</li>
+                </ol>
+            </nav>
+            <div class="row flex-row flex-md-column align-items-center justify-content-between justify-content-md-start align-items-md-start mb-3">
+                <h1 class="col-auto">Новости</h1>
+                
+                <form class="col-auto col-md-12">
+                    <button class="btn_filter d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"></button>
+                    <div class="form_wrapper d-none d-md-block">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <div class="g-filter input_wrapper input_text-wrapper d-flex align-items-center">
+                                    <input type="text" id="news-search" class="form-control g-filter" placeholder="Текст для поиска">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="g-filter input_wrapper input_data start">
+                                    <input type="date" class="form-control g-filter">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="g-filter input_wrapper input_data end">
+                                    <input type="date" class="form-control g-filter">
+                                </div>
+                            </div>
+                            <div class="col-2 d-flex justify-content-around justify-content-xxl-between gap-1">
+                                <button type="button" class="btn-g-16 g-secondary">Найти</button>
+                                <button role="reset" class="btn_clean" style="font-size: 12px;">
+                                    <span class="btn_clearn-text d-none d-xxl-inline">Сбросить</span>
+                                    <div class="btn_clean-icon">
+                                        <img class="btn_clean-def" src="img/clean-btn.svg" alt="clean">
+                                        <div class="btn_clean-hover"></div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <div class="select_wrapper g-filter d-flex align-items-center">
+                                    <select class="form-select g-filter">
+                                        <option class="g-filter-select-def">Узел (165)</option>
+                                        <option class="g-filter-select">Узел (165)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="select_wrapper g-filter d-flex align-items-center">
+                                    <select class="form-select g-filter">
+                                        <option class="g-filter-select-def">Рубрика (4)</option>
+                                        <option class="g-filter-select">Рубрика (4)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="select_wrapper g-filter d-flex align-items-center">
+                                    <select class="form-select g-filter">
+                                        <option class="g-filter-select-def">Участники (6)</option>
+                                        <option class="g-filter-select">Участники (6)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="select_wrapper g-filter d-flex align-items-center">
+                                    <select class="form-select g-filter">
+                                        <option class="g-filter-select-def">Теги (43)</option>
+                                        <option class="g-filter-select">Теги (43)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="offcanvas offcanvas-bottom h-auto rounded-top-4" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Поиск и фильтры</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="form_wrapper row gap-3 pb-4">
+                                <div class="col-12">
+                                    <div class="g-filter input_wrapper input_text-wrapper d-flex align-items-center">
+                                        <input type="text" id="news-search" class="form-control g-filter" placeholder="Текст для поиска">
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex gap-2">
+                                    <div class="col">
+                                        <div class="g-filter input_wrapper input_data start">
+                                            <input type="date" class="form-control g-filter">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="g-filter input_wrapper input_data end">
+                                            <input type="date" class="form-control g-filter">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="select_wrapper g-filter d-flex align-items-center">
+                                        <select class="form-select g-filter">
+                                            <option class="g-filter-select-def">Узел (165)</option>
+                                            <option class="g-filter-select">Узел (165)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="select_wrapper g-filter d-flex align-items-center">
+                                        <select class="form-select g-filter">
+                                            <option class="g-filter-select-def">Рубрика (4)</option>
+                                            <option class="g-filter-select">Рубрика (4)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="select_wrapper g-filter d-flex align-items-center">
+                                        <select class="form-select g-filter">
+                                            <option class="g-filter-select-def">Участники (6)</option>
+                                            <option class="g-filter-select">Участники (6)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="select_wrapper g-filter d-flex align-items-center">
+                                        <select class="form-select g-filter">
+                                            <option class="g-filter-select-def">Теги (43)</option>
+                                            <option class="g-filter-select">Теги (43)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex align-items-center justify-content-between">
+                                    <div class="col-auto">
+                                        <button type="button" class="btn-g-16 g-secondary">Найти</button>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button role="reset" class="btn_clean">Сбросить
+                                            <div href="#" class="btn_clean-icon">
+                                                <img class="btn_clean-def" src="img/clean-btn.svg" alt="clean">
+                                                <div class="btn_clean-hover"></div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row border-bottom mb-3">
+                <a href="#" class="d-flex flex-column flex-md-row col-12 col-xl-10 insert-custom-row news_block-content">
+                    <div class="col-md-2 order-2 order-md-1">
+                        <div class="col-sm-3 col-lg-2 pubs-data d-flex gap-1 mb-2">
+                            <span class="day allnews">29</span>
+                            <div class="month-year allnews">
+                                июля
+                                <br class="d-none d-md-block">
+                                2024
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 order-1 order-md-2 mb-3">
+                        <img class="rounded w-100" src="https://media.guap.ru/21582/_title.jpg?s=sm" alt="картинка">
+                    </div>
+                    <div class="col-md-7 order-3">
+                        <h5>Команда ГУАП заняла 2 место на хакатоне «Лидеры цифровой трансформации»</h5>
+                        <p>В Москве прошел финал конкурса «Лидеры цифровой трансформации». В хакатоне приняли участие более девяти тысяч человек из всех регионов России и 45 других стран</p>
+                    </div>
+                </a>
+                <div class="d-none d-xl-block col-2">
+                    <a href="#" class="badge badge-g-sm">ГУАП</a>
+                    <a href="#" class="badge badge-g-sm">Институт 1</a>
+                    <a href="#" class="badge badge-g-sm">Кафедра 14</a>
+                    <a href="#" class="badge badge-g-sm">Приемная кампания</a>
+                    <a href="#" class="badge badge-g-sm">Поступающие</a>
+                    <a href="#" class="badge badge-g-sm">Профориентация (школы)</a>
+                    <a href="#" class="badge badge-g-sm">Школьники</a>
+                </div>
+            </div>
+            <div class="row border-bottom mb-3">
+                <a href="#" class="d-flex flex-column flex-md-row col-12 col-xl-10 insert-custom-row news_block-content">
+                    <div class="col-md-2 order-2 order-md-1">
+                        <div class="col-sm-3 col-lg-2 pubs-data d-flex gap-1 mb-2">
+                            <span class="day allnews">29</span>
+                            <div class="month-year allnews">
+                                июля
+                                <br class="d-none d-md-block">
+                                2024
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 order-1 order-md-2 mb-3">
+                        <img class="rounded w-100" src="https://media.guap.ru/21582/_title.jpg?s=sm" alt="картинка">
+                    </div>
+                    <div class="col-md-7 order-3">
+                        <h5>Команда ГУАП заняла 2 место на хакатоне «Лидеры цифровой трансформации»</h5>
+                        <p>В Москве прошел финал конкурса «Лидеры цифровой трансформации». В хакатоне приняли участие более девяти тысяч человек из всех регионов России и 45 других стран</p>
+                    </div>
+                </a>
+                <div class="d-none d-xl-block col-2">
+                    <a href="#" class="badge badge-g-sm">ГУАП</a>
+                    <a href="#" class="badge badge-g-sm">Институт 1</a>
+                    <a href="#" class="badge badge-g-sm">Кафедра 14</a>
+                    <a href="#" class="badge badge-g-sm">Приемная кампания</a>
+                    <a href="#" class="badge badge-g-sm">Поступающие</a>
+                    <a href="#" class="badge badge-g-sm">Профориентация (школы)</a>
+                    <a href="#" class="badge badge-g-sm">Школьники</a>
+                </div>
+            </div>
+            <div class="row border-bottom mb-3">
+                <a href="#" class="d-flex flex-column flex-md-row col-12 col-xl-10 insert-custom-row news_block-content">
+                    <div class="col-md-2 order-2 order-md-1">
+                        <div class="col-sm-3 col-lg-2 pubs-data d-flex gap-1 mb-2">
+                            <span class="day allnews">29</span>
+                            <div class="month-year allnews">
+                                июля
+                                <br class="d-none d-md-block">
+                                2024
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 order-1 order-md-2 mb-3">
+                        <img class="rounded w-100" src="https://media.guap.ru/21582/_title.jpg?s=sm" alt="картинка">
+                    </div>
+                    <div class="col-md-7 order-3">
+                        <h5>Команда ГУАП заняла 2 место на хакатоне «Лидеры цифровой трансформации»</h5>
+                        <p>В Москве прошел финал конкурса «Лидеры цифровой трансформации». В хакатоне приняли участие более девяти тысяч человек из всех регионов России и 45 других стран</p>
+                    </div>
+                </a>
+                <div class="d-none d-xl-block col-2">
+                    <a href="#" class="badge badge-g-sm">ГУАП</a>
+                    <a href="#" class="badge badge-g-sm">Институт 1</a>
+                    <a href="#" class="badge badge-g-sm">Кафедра 14</a>
+                    <a href="#" class="badge badge-g-sm">Приемная кампания</a>
+                    <a href="#" class="badge badge-g-sm">Поступающие</a>
+                    <a href="#" class="badge badge-g-sm">Профориентация (школы)</a>
+                    <a href="#" class="badge badge-g-sm">Школьники</a>
+                </div>
+            </div>
+            <div class="row border-bottom mb-3">
+                <a href="#" class="d-flex flex-column flex-md-row col-12 col-xl-10 insert-custom-row news_block-content">
+                    <div class="col-md-2 order-2 order-md-1">
+                        <div class="col-sm-3 col-lg-2 pubs-data d-flex gap-1 mb-2">
+                            <span class="day allnews">29</span>
+                            <div class="month-year allnews">
+                                июля
+                                <br class="d-none d-md-block">
+                                2024
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 order-1 order-md-2 mb-3">
+                        <img class="rounded w-100" src="https://media.guap.ru/21582/_title.jpg?s=sm" alt="картинка">
+                    </div>
+                    <div class="col-md-7 order-3">
+                        <h5>Команда ГУАП заняла 2 место на хакатоне «Лидеры цифровой трансформации»</h5>
+                        <p>В Москве прошел финал конкурса «Лидеры цифровой трансформации». В хакатоне приняли участие более девяти тысяч человек из всех регионов России и 45 других стран</p>
+                    </div>
+                </a>
+                <div class="d-none d-xl-block col-2">
+                    <a href="#" class="badge badge-g-sm">ГУАП</a>
+                    <a href="#" class="badge badge-g-sm">Институт 1</a>
+                    <a href="#" class="badge badge-g-sm">Кафедра 14</a>
+                    <a href="#" class="badge badge-g-sm">Приемная кампания</a>
+                    <a href="#" class="badge badge-g-sm">Поступающие</a>
+                    <a href="#" class="badge badge-g-sm">Профориентация (школы)</a>
+                    <a href="#" class="badge badge-g-sm">Школьники</a>
+                </div>
+            </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination align-items-center justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="mt-auto">
+        <div class="site-footer text-light pt-5 pb-5">
+            <div class="container-xxl">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <img class="footer-logo" src="https://src.guap.ru/logos/guap/guap-desc-line_w.svg" alt="гуап">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-lg-3">
+                        <div class="my-5 mb-0 my-sm-5">
+                            <p>
+                                <span class="d-block opacity-50">Почтовый адрес:</span>
+                                <span class="me-2">ГУАП, ул.&nbsp;Большая Морская, <nobr>д.&nbsp;67, лит. А
+                                    </nobr>,
+                                    <nobr>Санкт-Петербург</nobr>, 190000, Россия
+                                </span>
+                            </p>
+                            <p>
+                                <span class="d-block opacity-50">Приемная комиссия:</span>
+                                <span class="me-2"><a href="https://priem.guap.ru/">https://priem.guap.ru</a>,</span>
+                                <span class="me-2"><a class="link-tel text-nowrap" itemprop="telephone"
+                                        href="tel:+78123122107">+7-812-312-21-07</a>,</span>
+                                <span class="me-2"><a href="mailto:priem@guap.ru"
+                                        class="link-email text-nowrap">priem@guap.ru</a></span>
+                            </p>
+                            <p>
+                                <span class="d-block opacity-50">Отдел делопроизводства:</span>
+                                <span class="me-2"><a class="link-tel text-nowrap" itemprop="telephone"
+                                        href="tel:+78124947005">+7-812-494-70-05</a>,</span>
+                                <span class="me-2"><a class="link-tel text-nowrap" itemprop="telephone"
+                                        href="tel:+78124947057">+7-812-494-70-57</a>&nbsp;(факс),</span>
+                                <span class="me-2"><a href="mailto:info@guap.ru"
+                                        class="link-email text-nowrap">info@guap.ru</a></span>
+                            </p>
+                            <p>
+                                <span class="d-block opacity-50">Отдел информационно-стратегических
+                                    коммуникаций
+                                    и&nbsp;рекламы:</span>
+                                <span class="me-2"><a href="mailto:pr@guap.ru"
+                                        class="link-email text-nowrap">pr@guap.ru</a></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-none d-md-block col-1"></div>
+                    <div class="col-sm-8 col-md-7 col-lg-8 row">
+                        <div class="col-6 col-xl-3 my-sm-5 mt-3 mb-1 footer-list">
+                            <h5>Университет</h5>
+                            <p class="my-2"><a href="#">Сведения об образовательной организации</a></p>
+                            <p class="my-2"><a href="#">Структура</a></p>
+                            <p class="my-2"><a href="#">Корпуса и общежития</a></p>
+                            <p class="my-2"><a href="#">Преподаватели и сотрудники</a></p>
+                            <p class="my-2"><a href="#">Политика обработки персональных данных</a></p>
+                        </div>
+                        <div class="col-6 col-xl-3 my-sm-5 mt-3 mb-1 footer-list">
+                            <h5>Образование</h5>
+                            <p class="my-2"><a href="#">Довузовское</a></p>
+                            <p class="my-2"><a href="#">Среднее профессиональное</a></p>
+                            <p class="my-2"><a href="#">Высшее</a></p>
+                            <p class="my-2"><a href="#">Аспирантура и докторантура</a></p>
+                            <p class="my-2"><a href="#">Дополнительное профессиональное</a></p>
+                        </div>
+                        <div class="col-6 col-xl-3 my-sm-5 mt-3 mb-1 footer-list">
+                            <h5>Деятельность</h5>
+                            <p class="my-2"><a href="#">Международная</a></p>
+                            <p class="my-2"><a href="#">Научная и инновационная</a></p>
+                            <p class="my-2"><a href="#">Финансово-экономическая</a></p>
+                            <p class="my-2"><a href="#">Воспитательная работа и молодежная политика</a></p>
+                            <p class="my-2"><a href="#">Профориентация школьников</a></p>
+                        </div>
+                        <div class="col-6 col-xl-3 my-sm-5 mt-3 mb-1 footer-list">
+                            <h5>Ресурсы</h5>
+                            <p class="my-2"><a href="#">Карта сайта</a></p>
+                            <p class="my-2"><a href="#">Медиаплощадки</a></p>
+                            <p class="my-2"><a href="#">СМИ о ГУАП</a></p>
+                            <p class="my-2"><a href="#">Информация для лиц с ОВЗ</a></p>
+                            <p class="my-2"><a href="#">Вопросы и ответы</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-xl-end footer-links mt-3 mt-md-0">
+                    <div class="col-sm-5 col-xxl-2">
+                        <div class="pubs-links">
+                            <ul class="nav justify-content-xl-end gap-2">
+                                <li><a href="#"><i class="gi-logo-vk"></i></a></li>
+                                <li><a href="#"><i class="gi-logo-ok"></i></a></li>
+                                <li><a href="#"><i class="gi-logo-rutube"></i></a></li>
+                                <li><a href="#"><i class="gi-logo-dzen"></i></a></li>
+                                <li><a href="#"><i class="gi-logo-telegram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-md-5 border-2">
+                <a href="#" class="float-end">Разработка сайта — УЦР ГУАП 2023</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Gallery -->
+    <script src="node_modules/blueimp-gallery/js/blueimp-gallery.js"></script>
+    <script>
+        document.getElementById('gallery').onclick = function (event) {
+            event = event || window.event
+            var target = event.target || event.srcElement
+            var link = target.src ? target.parentNode : target
+            var options = { index: link, event: event }
+            var links = this.getElementsByTagName('a')
+            blueimp.Gallery(links, options)
+        }
+    </script>
+    <script>
+        document.getElementById('gallery').onclick = function (event) {
+            event = event || window.event
+            var target = event.target || event.srcElement
+            var link = target.src ? target.parentNode : target
+            var options = { index: link, event: event }
+            var links = this.getElementsByTagName('a')
+            blueimp.Gallery(links, options)
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const galleryItems = document.querySelectorAll(".gallery-items li");
+            let hasLinks = false;
+
+            galleryItems.forEach(item => {
+                const link = item.querySelector("a");
+                if (link) {
+                    hasLinks = true;
+                }
+            });
+
+            if (!hasLinks) {
+                document.querySelector(".gallery-items").style.display = "none";
+            }
+        });
+    </script>
+    <!-- /Gallery -->
+
+    <!-- Mobile menu -->
+    <nav id="menu">
+        <ul>
+            <li><span>Университет</span>
+                <ul>
+                    <li>
+                        <span>О вузе</span>
+                        <ul>
+                            <li><a href="/greeting">Приветствие ректора</a></li>
+                            <li><a href="/mission">Миссия</a></li>
+                            <li><a href="/prioritet2030">Приоритет 2030 — программа развития ГУАП на 2021&ndash;2030 годы</a></li>
+                            <li><a href="https://fs.guap.ru/docs/common/strategy_2024.pdf">Концепция программы развития ГУАП на 2020&ndash;2024 годы</a></li>
+                            <li><a href="/fip">Федеральная инновационная площадка</a></li>
+                            <li><a href="/sveden">Сведения об образовательной организации</a></li>
+                            <li><a href="/sveden/struct">Структура организации</a></li>
+                            <li><a href="/sveden/common#reqs">Реквизиты ГУАП</a></li>
+                            <li><a href="/eif">Финансово-экономическая деятельность</a></li>
+                            <li><a href="/inter">Международная деятельность</a></li>
+                            <li><a href="/vrmp">Воспитательная работа и молодежная политика</a></li>
+                            <li><a href="/history">История вуза</a></li>
+                            <li><a href="/dods">Дни открытых дверей</a></li>
+                            <li><a href="/anticor">Противодействие коррупции</a></li>
+                            <li><a href="/antimonopoly">Антимонопольный комплаенс</a></li>
+                            <li><a href="/media">Медиаплощадки ГУАП</a></li>
+                            <li><a href="/smi">СМИ о ГУАП</a></li>
+                            <li><a href="https://download.guap.ru/local/_tels2020-01.pdf">Телефонный справочник ГУАП (только из внутренней сети университета)</a></li>
+                            <li><a href="/brand">Фирменный стиль</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <script src="node_modules/mmenu-js/dist/mmenu.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded", () => {
+                new Mmenu("#menu", {
+                    "navbar": {
+                        "title": `<div class='navbar-brand'><img class="mw-100 py-2" src="https://src.guap.ru/logos/guap/guap-desc-line.svg" alt="\"></div>`,
+                        "content": [
+                            "breadcrumbs",
+                            "close"
+                        ]
+                    },
+                    "offCanvas": {
+                        position: "left-front"
+                    },
+                    "theme": "white",
+                    "navbars": [
+                        {
+                            "position": "bottom",
+                            "content": [
+                                `<a target="_blank" href="https://vk.com/guap_ru"><img src="https://src.guap.ru/_old/Files/logos/vk_32.svg" alt="vk"></a>`,
+                                `<a target="_blank" href="https://rutube.ru/channel/23832078/"><img src="https://src.guap.ru/_old/Files/logos/rutub_32_blue_2.svg" alt="rutube"></a>`,
+                                `<a target="_blank" href="https://t.me/new_guap"><img src="https://src.guap.ru/_old/Files/logos/tlg_32.svg" alt="telegram"></a>`,
+                                `<a target="_blank" href="/faq"><i class="bi bi-patch-question-fill" style="font-size: 32px;"></i></a>`
+                            ]
+                        }
+                    ]
+                }, {});
+            }
+        );
+    </script>
+    <!-- /Mobile menu -->
+</body>
+</html>

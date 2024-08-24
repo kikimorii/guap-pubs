@@ -1,0 +1,73 @@
+@mixin badge_disabled-sample {
+    &.disabled {
+        cursor: default;
+        color: $dark-20 !important;
+        background-color: $dark-10;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:active {
+            color: $dark-20 !important;
+        }
+    }
+}
+
+@mixin badge-sample {
+    background-color: $bg_light;
+    color: $primary-guap;
+    font-size: 14px;
+    padding: 0.5rem 1.4rem;
+    font-weight: 400;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+    &:focus {
+        outline-color: $border-badge;
+        box-shadow: 0 2px 3px 0 #D6E5F1;
+    }
+
+    &:active,
+    &.active {
+        background-color: $bg_medium;
+        text-decoration: none;
+        color: $primary-guap !important;
+    }
+}
+
+@mixin btn-sample($color-main, $color-dark, $color-gradient) {
+    border-radius: 4px;
+    color: $dark-main;
+    background-color: $bg_light;
+    background-color: $color-main;
+    color: $light-main;
+    border: 0;
+
+    &:hover {
+        background-image: $color-gradient;
+    }
+
+    &:focus {
+        outline-color: $color-dark;
+    }
+
+    &:active, &.active {
+        background-color: $color-dark;
+        &:hover {
+            background-image: none;
+        }
+    }
+
+    &.disable {
+        background-color: $dark-10 !important;
+        color: $dark-20 !important;
+        &:hover {
+            background-image: none;
+        }
+    }
+}

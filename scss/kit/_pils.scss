@@ -1,0 +1,26 @@
+.pils {
+    &_g {
+        color: $dark-40 !important;
+        font-size: 20px;
+        padding: 0.4rem 0.8rem;
+        font-weight: 400;
+        &:hover {
+            text-decoration: underline;
+        }
+        &:focus {
+            color: $primary-guap !important;
+            outline-color: $primary-guap;
+            text-decoration: none;
+        }
+        &:active, &.active {
+            color: $light-main !important;
+            background-color: $primary-guap;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        @include media-breakpoint-down(lg) {
+            font-size: 16px;
+            padding: 0.5rem 1rem;
+        }
+    }
+}

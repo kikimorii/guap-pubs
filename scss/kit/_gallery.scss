@@ -1,0 +1,22 @@
+@import "../node_modules/blueimp-gallery/css/blueimp-gallery.min.css";
+
+.gallery {
+    border-radius: 4px;
+    &-first {
+        width: 100%;
+    }
+    &-items {
+        overflow-x: auto;
+        padding-bottom: 20px;
+    }
+    &-item {
+        border-radius: 4px;
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        @include media-breakpoint-down(md) {
+            height: 60px;
+            width: 60px;
+        }
+    }
+}

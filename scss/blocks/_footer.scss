@@ -1,0 +1,35 @@
+footer {
+    font-size: 14px;
+    background-color: $primary-dark;
+    color: $light-main !important;
+    & a {
+        color: $light-main !important;
+        opacity: 0.8;
+        &:hover {
+            color: $light-main !important;
+            opacity: 0.6;
+        }
+    }
+    @include media-breakpoint-down(md) {
+        h5 {
+            font-size: 18px;
+        }
+    }
+}
+
+.footer {
+    &-list {
+        font-size: 12px;
+    }
+    &-logo {
+        max-width: 100%;
+    }
+    &-links {
+        margin-top: -60px;
+        margin-bottom: 45px;
+        @include media-breakpoint-down(md) {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+    }
+}
